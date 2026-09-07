@@ -122,6 +122,8 @@ jobs:
           build-args: |
             VITE_APP_VERSION=${{ steps.bump.outputs.version }}
             VITE_IMAGE_VERSION=${{ steps.bump.outputs.version }}
-            VITE_SITE_URL=${{ vars.VITE_SITE_URL || 'https://example.com' }}
+            VITE_SITE_URL=${{ vars.VITE_SITE_URL }}
             VITE_AUTHOR_NAME=${{ vars.VITE_AUTHOR_NAME || 'Gabriel Oliveira Brito' }}
+            VITE_TWITTER_SITE=${{ vars.VITE_TWITTER_SITE }}
+            VITE_TWITTER_CREATOR=${{ vars.VITE_TWITTER_CREATOR }}
             STRIP_SOURCE_MAPS=${{ inputs.strip_source_maps }}
