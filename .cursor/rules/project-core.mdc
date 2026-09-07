@@ -1,0 +1,13 @@
+---
+description: Core Media Comparer conventions (SPA, pnpm, ids, i18n)
+alwaysApply: true
+---
+
+# Project core
+
+- Client-only Vite + React SPA. No Next.js, no backend, no real file upload.
+- Package manager: **pnpm** only.
+- User media stays in browser memory (`File` / `objectURL`); never send to a server or Cache Storage.
+- All user-facing strings go through **i18n** (`en` first).
+- Every interactive or structural UI element must have a **stable `id`** (tour, a11y, tests). Pattern: `app-*`, `media-*`, `tab-*`, `media-card-{id}`, `diff-row-{itemId}-{fieldKey}`.
+- Prefer minimal diffs; follow existing folder layout under `src/`.
