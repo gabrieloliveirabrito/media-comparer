@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build / Vite
+dist/
+dev-dist/
+.vite/
+*.local
+
+# Env (keep .env.example)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test / coverage
+coverage/
+*.lcov
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Sourcemaps (local artifacts)
+*.map
+
+# WASM caches / generated (copied from @ffmpeg/core on install/build)
+public/ffmpeg/
+*.wasm
+!public/**/*.wasm
+
+# Docker
+.dockerignore.local

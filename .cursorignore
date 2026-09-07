@@ -1,0 +1,21 @@
+# Heavy / generated — save Cursor quota
+node_modules/
+dist/
+dev-dist/
+.vite/
+coverage/
+
+# Sourcemaps & WASM
+**/*.map
+**/*.wasm
+
+# Env secrets
+.env
+.env.local
+.env.*.local
+
+# Git internals
+.git/
+
+# Self-hosted ffmpeg assets (large)
+public/ffmpeg/

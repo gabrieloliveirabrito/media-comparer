@@ -1,0 +1,12 @@
+---
+description: Require explicit approval before installing packages
+alwaysApply: true
+---
+
+# Package installs
+
+- Do **not** run `pnpm add`, `pnpm dlx`, `npm install`, or upgrade deps without:
+  1. Stating the **reason** for each dependency
+  2. Waiting for **explicit developer confirmation**
+- Prefer packages already in the plan/stack (Dice UI, Radix, ffmpeg.wasm, exifr, i18next, vite-plugin-pwa).
+- After approval, use pnpm and commit lockfile changes only when asked to commit.

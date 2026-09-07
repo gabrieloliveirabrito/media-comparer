@@ -1,0 +1,11 @@
+---
+description: Reduce Cursor quota burn (avoid heavy dirs)
+alwaysApply: true
+---
+
+# Cursor quota
+
+- Do not read or search `node_modules/`, `dist/`, `dev-dist/`, `.vite/`, `coverage/`.
+- Do not load large WASM, sourcemaps (`*.map`), or test media into context.
+- Prefer targeted greps over whole-repo reads.
+- Keep rule files and prompts concise.

@@ -1,0 +1,13 @@
+services:
+  media-comparer:
+    build:
+      context: .
+      args:
+        VITE_APP_VERSION: ${VITE_APP_VERSION:-0.1.0}
+        VITE_IMAGE_VERSION: ${VITE_IMAGE_VERSION:-0.1.0-local}
+        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost}
+        VITE_AUTHOR_NAME: ${VITE_AUTHOR_NAME:-Gabriel Oliveira Brito}
+        STRIP_SOURCE_MAPS: ${STRIP_SOURCE_MAPS:-true}
+    ports:
+      - "8080:80"
+    image: media-comparer:local
