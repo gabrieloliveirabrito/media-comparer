@@ -11,6 +11,10 @@
     <meta name="robots" content="index,follow" />
     <meta name="application-name" content="Media Comparer" />
     <meta name="theme-color" content="#0f766e" />
+    <!--
+      __SITE_ORIGIN__ is rewritten at build (real VITE_SITE_URL) and/or by nginx
+      from the request Host so crawlers always see absolute OG/Twitter URLs.
+    -->
     <link rel="canonical" href="__SITE_ORIGIN__/" />
 
     <meta property="og:type" content="website" />
@@ -22,8 +26,8 @@
       content="Side-by-side media comparison with rich metadata. No uploads — everything stays in your browser."
     />
     <meta property="og:url" content="__SITE_ORIGIN__/" />
-    <meta property="og:image" content="__OG_IMAGE__" />
-    <!-- __OG_SECURE_URL_META__ -->
+    <meta property="og:image" content="__SITE_ORIGIN__/og.png" />
+    <meta property="og:image:secure_url" content="__SITE_ORIGIN__/og.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -38,7 +42,7 @@
       content="Side-by-side media comparison with rich metadata. No uploads — everything stays in your browser."
     />
     <meta name="twitter:url" content="__SITE_ORIGIN__/" />
-    <meta name="twitter:image" content="__OG_IMAGE__" />
+    <meta name="twitter:image" content="__SITE_ORIGIN__/og.png" />
     <meta name="twitter:image:alt" content="Media Comparer — local media comparison" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

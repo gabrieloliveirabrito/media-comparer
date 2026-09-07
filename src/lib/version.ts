@@ -14,6 +14,9 @@ export function getAuthorName(): string {
 }
 
 export function getSiteUrl(): string {
-  const raw = (import.meta.env.VITE_SITE_URL || "http://localhost").trim()
-  return raw.replace(/\/+$/, "") || "http://localhost"
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return window.location.origin
+  }
+  const raw = (import.meta.env.VITE_SITE_URL || "").trim().replace(/\/+$/, "")
+  return raw || "http://localhost"
 }

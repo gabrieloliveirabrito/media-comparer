@@ -13,7 +13,8 @@ COPY . .
 
 ARG VITE_APP_VERSION=0.0.0
 ARG VITE_IMAGE_VERSION=0.0.0
-ARG VITE_SITE_URL=http://localhost
+# Empty → keep __SITE_ORIGIN__ in HTML; nginx rewrites from request Host.
+ARG VITE_SITE_URL=
 ARG VITE_AUTHOR_NAME=Gabriel Oliveira Brito
 ARG VITE_TWITTER_SITE=
 ARG VITE_TWITTER_CREATOR=

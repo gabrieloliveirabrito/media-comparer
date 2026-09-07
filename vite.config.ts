@@ -5,10 +5,35 @@ import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 import { VitePWA } from "vite-plugin-pwa"
 
-/** Absolute site origin for canonical/OG tags (no trailing slash). */
+/** Absolute site origin (no trailing slash). Empty if unset. */
 function normalizeSiteOrigin(raw: string | undefined): string {
-  const trimmed = (raw ?? "").trim().replace(/\/+$/, "")
-  return trimmed || "http://localhost"
+  return (raw ?? "").trim().replace(/\/+$/, "")
+}
+
+/**
+ * True when the origin should be baked into HTML at build time.
+ * Placeholder / local domains are left as `__SITE_ORIGIN__` so nginx can
+ * rewrite from the live request Host (Coolify / any domain).
+ */
+function shouldBakeSiteOrigin(origin: string): boolean {
+  if (!origin) return false
+  let hostname: string
+  try {
+    hostname = new URL(origin).hostname
+  } catch {
+    return false
+  }
+  if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1") {
+    return false
+  }
+  if (
+    hostname === "example.com" ||
+    hostname.endsWith(".example.com") ||
+    hostname.endsWith(".example.test")
+  ) {
+    return false
+  }
+  return true
 }
 
 /** Twitter/X @handle; empty string if unset. */
@@ -19,9 +44,9 @@ function normalizeTwitterHandle(raw: string | undefined): string {
 }
 
 /**
- * Rewrites static SEO placeholders in index.html at transform time from
- * VITE_SITE_URL / Twitter env so og/canonical/twitter never need hand-edited URLs.
- * Public assets (e.g. /og.png) resolve against the site origin.
+ * SEO for the static nginx SPA:
+ * - Real `VITE_SITE_URL` → bake absolute OG/Twitter URLs into dist/index.html
+ * - Otherwise keep `__SITE_ORIGIN__` for nginx `sub_filter` at request time
  */
 function injectSiteMeta(options: {
   siteOrigin: string
@@ -29,10 +54,7 @@ function injectSiteMeta(options: {
   twitterCreator: string
 }): Plugin {
   const { siteOrigin, twitterSite, twitterCreator } = options
-  const ogImage = `${siteOrigin}/og.png`
-  const secureUrlMeta = siteOrigin.startsWith("https://")
-    ? `<meta property="og:image:secure_url" content="${ogImage}" />`
-    : ""
+  const bake = shouldBakeSiteOrigin(siteOrigin)
   const twitterSiteMeta = twitterSite
     ? `<meta name="twitter:site" content="${twitterSite}" />`
     : ""
@@ -43,12 +65,13 @@ function injectSiteMeta(options: {
   return {
     name: "inject-site-meta",
     transformIndexHtml(html) {
-      return html
-        .replaceAll("__SITE_ORIGIN__", siteOrigin)
-        .replaceAll("__OG_IMAGE__", ogImage)
-        .replace("<!-- __OG_SECURE_URL_META__ -->", secureUrlMeta)
+      let out = html
         .replace("<!-- __TWITTER_SITE_META__ -->", twitterSiteMeta)
         .replace("<!-- __TWITTER_CREATOR_META__ -->", twitterCreatorMeta)
+      if (bake) {
+        out = out.replaceAll("__SITE_ORIGIN__", siteOrigin)
+      }
+      return out
     },
   }
 }
