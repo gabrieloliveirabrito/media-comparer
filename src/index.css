@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: "Segoe UI", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #f4f7f6;
+  --foreground: #0b1f1c;
+  --card: #ffffff;
+  --card-foreground: #0b1f1c;
+  --popover: #ffffff;
+  --popover-foreground: #0b1f1c;
+  --primary: #0f766e;
+  --primary-foreground: #ecfdf5;
+  --secondary: #e2eeeb;
+  --secondary-foreground: #134e4a;
+  --muted: #e8efed;
+  --muted-foreground: #5b6f6b;
+  --accent: #d5f5ef;
+  --accent-foreground: #115e59;
+  --destructive: #dc2626;
+  --border: #cfdcd8;
+  --input: #cfdcd8;
+  --ring: #0f766e;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #e8f5f2;
+  --card: #121a2b;
+  --card-foreground: #e8f5f2;
+  --popover: #121a2b;
+  --popover-foreground: #e8f5f2;
+  --primary: #2dd4bf;
+  --primary-foreground: #042f2e;
+  --secondary: #1a2438;
+  --secondary-foreground: #c7ebe4;
+  --muted: #1a2438;
+  --muted-foreground: #94a8a3;
+  --accent: #16353a;
+  --accent-foreground: #99f6e4;
+  --destructive: #f87171;
+  --border: #243044;
+  --input: #243044;
+  --ring: #2dd4bf;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased min-h-dvh;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, color-mix(in oklab, var(--primary) 18%, transparent), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 0%, color-mix(in oklab, var(--primary) 10%, transparent), transparent);
+  }
+
+  [data-tour-active="true"] {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-md);
+  }
+}

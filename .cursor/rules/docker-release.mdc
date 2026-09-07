@@ -1,0 +1,12 @@
+---
+description: Docker image and GHCR release conventions
+alwaysApply: true
+---
+
+# Docker / release
+
+- Static nginx image serving Vite `dist/`; Coolify-ready on port 80.
+- Never commit `.env` secrets; only `.env.example`.
+- Release via `workflow_dispatch`: bump semver → commit `package.json` → branch `release/X.Y.Z` → tag `vX.Y.Z` → push GHCR.
+- Honor `STRIP_SOURCE_MAPS`: when true, final image must contain no `*.map`.
+- Inject `VITE_APP_VERSION` / `VITE_IMAGE_VERSION` at build for the footer.

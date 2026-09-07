@@ -1,0 +1,15 @@
+node_modules
+dist
+dev-dist
+.git
+.github
+.cursor
+.vscode
+*.md
+.env
+.env.*
+!.env.example
+coverage
+.vite
+**/*.map
+pnpm-debug.log*

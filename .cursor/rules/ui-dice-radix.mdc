@@ -1,0 +1,14 @@
+---
+description: Dice UI + Radix patterns for compare UI
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+# UI (Dice + Radix)
+
+- Use Dice UI File Upload, Tour, Media Player where planned; Radix Tabs, Toast, Dialog.
+- FileUpload `accept` must match the active tab (images / videos / audio only).
+- Long compares: Dialog + indeterminate circular progress; one compare at a time (mutex).
+- Diffs/errors/info: Radix Toast explaining field and why it differs.
+- Tour only on first visit (`localStorage` flag).
+- Theme: light / dark / system via navbar control.

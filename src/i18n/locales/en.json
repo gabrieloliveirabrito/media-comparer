@@ -1,0 +1,130 @@
+{
+  "app": {
+    "name": "Media Comparer",
+    "tagline": "Compare media locally. No uploads."
+  },
+  "nav": {
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "backToTop": "Back to top"
+  },
+  "legal": {
+    "title": "Privacy notice",
+    "body": "Your files never leave this device. Media Comparer reads them only in your browser — there is no upload, no server storage, and no cloud sync of your media."
+  },
+  "tabs": {
+    "images": "Images",
+    "videos": "Videos",
+    "audio": "Audio"
+  },
+  "dropzone": {
+    "title": "Drop files here or click to browse",
+    "hintImages": "Images only (PNG, JPG, WebP, GIF, AVIF, …)",
+    "hintVideos": "Videos only (MP4, WebM, MKV, MOV, …)",
+    "hintAudio": "Audio only (MP3, WAV, FLAC, OGG, …)",
+    "rejectType": "That file type is not allowed on this tab.",
+    "busy": "Comparison in progress — please wait.",
+    "clear": "Clear files"
+  },
+  "grid": {
+    "empty": "Add at least two files to compare metadata side by side.",
+    "remove": "Remove",
+    "comparing": "Comparing metadata…",
+    "fieldsTitle": "Details — {{name}}",
+    "mobileHasDiff": "{{count}} differing fields",
+    "mobileNoDiff": "No differences found",
+    "mobileNeedsCompare": "Add another file to compare",
+    "mobileTapHint": "Tap to view all metadata"
+  },
+  "fields": {
+    "helpAria": "Explain {{field}}",
+    "fileName": "File name",
+    "fileSize": "File size",
+    "mimeType": "MIME type",
+    "extension": "Extension",
+    "width": "Width",
+    "height": "Height",
+    "resolution": "Resolution",
+    "aspectRatio": "Aspect ratio",
+    "colorSpace": "Color space",
+    "bitDepth": "Bit depth",
+    "compression": "Compression / format",
+    "make": "Camera make",
+    "model": "Camera model",
+    "orientation": "Orientation",
+    "container": "Container",
+    "videoCodec": "Video codec",
+    "audioCodec": "Audio codec",
+    "duration": "Duration",
+    "frameRate": "Frame rate",
+    "bitrate": "Bitrate",
+    "sampleRate": "Sample rate",
+    "channels": "Channels",
+    "pixelFormat": "Pixel format"
+  },
+  "fieldHelp": {
+    "fileName": "The original file name on disk. Useful to spot renamed exports of the same media.",
+    "fileSize": "Raw byte size of the file. Smaller often means stronger compression or fewer pixels/samples.",
+    "mimeType": "Browser-reported media type (for example image/png or video/mp4).",
+    "extension": "Filename extension such as .jpg or .mkv. May differ from the real container/codec.",
+    "width": "Horizontal pixel count of the image or video frame.",
+    "height": "Vertical pixel count of the image or video frame.",
+    "resolution": "Width × height. Higher resolution usually means more detail and larger files.",
+    "aspectRatio": "Width divided by height (for example 1.778 ≈ 16:9).",
+    "colorSpace": "How color values are interpreted (sRGB, Display P3, etc.). Mismatches can change how colors look.",
+    "bitDepth": "Bits used per color channel. 8-bit is common; 10/12/16-bit hold more tonal detail.",
+    "compression": "Container/format or EXIF compression tag (PNG, JPEG, WebP, etc.).",
+    "make": "Camera manufacturer from EXIF. Often missing on screenshots and edited exports.",
+    "model": "Camera model from EXIF. Often missing unless the shot came from a camera/phone.",
+    "orientation": "EXIF rotation hint so viewers can display the image upright.",
+    "container": "File wrapper format (mp4, matroska/mkv, webm, wav…). Different from the codec inside.",
+    "videoCodec": "Algorithm that encodes video frames (H.264/AVC, HEVC, VP9, AV1…). Affects quality, size, and compatibility.",
+    "audioCodec": "Algorithm that encodes audio (AAC, Opus, MP3, FLAC…). Affects quality, size, and compatibility.",
+    "duration": "Playback length of the media.",
+    "frameRate": "Frames per second (fps). Higher fps looks smoother but needs more bitrate.",
+    "bitrate": "Average data rate. Higher bitrate usually preserves more quality for the same resolution/codec.",
+    "sampleRate": "Audio samples per second (for example 44100 Hz or 48000 Hz).",
+    "channels": "Audio channel layout (mono, stereo, 5.1, etc.).",
+    "pixelFormat": "How luminance/chroma are stored (yuv420p, yuv444p, rgb24…). yuv420 is common and more compressed; yuv444 keeps full chroma detail."
+  },
+  "diff": {
+    "title": "Difference",
+    "same": "Matches other files on this field.",
+    "different": "Field \"{{field}}\" differs. This file: {{value}}. Compared against: {{others}}.",
+    "clickHint": "Click a row to learn why it differs.",
+    "missingCameraMeta": "Camera EXIF is often missing on screenshots and exported images.",
+    "overflowTitle": "{{count}} more differing files",
+    "detailTitle": "{{field}} comparison",
+    "detailBody": "Each colored badge matches a file in the grid. Review values side by side."
+  },
+  "toast": {
+    "errorTitle": "Something went wrong",
+    "warningTitle": "Heads up",
+    "infoTitle": "Comparison detail"
+  },
+  "tour": {
+    "welcomeTitle": "Welcome to Media Comparer",
+    "welcomeBody": "Compare images, videos, or audio entirely in your browser.",
+    "tabsTitle": "Pick a media type",
+    "tabsBody": "Each tab keeps comparisons separate — images with images, videos with videos, audio with audio.",
+    "dropTitle": "Add files locally",
+    "dropBody": "Drag and drop or browse. Nothing is uploaded to a server.",
+    "themeTitle": "Choose your theme",
+    "themeBody": "Switch between light, dark, or system preference anytime.",
+    "next": "Next",
+    "prev": "Back",
+    "skip": "Skip",
+    "done": "Done",
+    "counter": "{{current}} / {{total}}"
+  },
+  "footer": {
+    "developedBy": "Developed by {{name}} © {{year}}",
+    "version": "Image {{version}}"
+  },
+  "progress": {
+    "title": "Analyzing media",
+    "body": "Extracting metadata locally. Please wait — only one comparison runs at a time."
+  }
+}
