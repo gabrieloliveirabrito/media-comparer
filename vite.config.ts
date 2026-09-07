@@ -100,7 +100,7 @@ export default defineConfig(({ mode }) => {
         includeAssets: [
           "favicon.svg",
           "apple-touch-icon.png",
-          "og.png",
+          "og.jpg",
           "ffmpeg/ffmpeg-core.js",
           "ffmpeg/ffmpeg-core.wasm",
         ],
