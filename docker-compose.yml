@@ -5,8 +5,10 @@ services:
       args:
         VITE_APP_VERSION: ${VITE_APP_VERSION:-0.1.0}
         VITE_IMAGE_VERSION: ${VITE_IMAGE_VERSION:-0.1.0-local}
-        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost}
+        VITE_SITE_URL: ${VITE_SITE_URL:-}
         VITE_AUTHOR_NAME: ${VITE_AUTHOR_NAME:-Gabriel Oliveira Brito}
+        VITE_TWITTER_SITE: ${VITE_TWITTER_SITE:-}
+        VITE_TWITTER_CREATOR: ${VITE_TWITTER_CREATOR:-}
         STRIP_SOURCE_MAPS: ${STRIP_SOURCE_MAPS:-true}
     ports:
       - "8080:80"
